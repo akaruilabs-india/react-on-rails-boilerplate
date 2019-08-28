@@ -1,5 +1,5 @@
 {
-  "name": "rails6test",
+  "name": "rails_application",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
@@ -11,10 +11,27 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-on-rails": "11.3.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "cz-conventional-changelog": "^3.0.2",
+    "husky": "^3.0.4",
     "webpack-dev-server": "^3.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "defaultScope": "*",
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
